@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <h1>Thank you for contacting us!</h1>
+            <p>We have received your message and will get back to you soon.</p>
+
+            <div class="confirmation-details">
+                <h2>Your Message:</h2>
+                <p><strong>Name:</strong> {{ name }}</p>
+                <p><strong>Subject:</strong> {{ subject }}</p>
+                <p><strong>Message:</strong></p>
+                <p>{{ message }}</p>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="{{ url_for('index') }}" class="btn-primary">Return to Home</a>
+                <a href="{{ url_for('view_cart') }}" class="btn-secondary">Go to Cart</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-twitter"></i>
+        </div>
+        <p>© 2024 Your Restaurant - All Rights Reserved</p>
+    </footer>
+</body>
+</html>

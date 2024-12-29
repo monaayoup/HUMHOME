@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-container">
+            <div class="name">
+                <h1>Hum Home</h1>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="icon">
+                <a href="{{ url_for('view_cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="home" id="home">
+        <h1>Fast Food Restaurant</h1>
+    </div>
+
+    <div class="menu" id="menu">
+        <div class="menu-container">
+            <h1>Categories</h1>
+            <div class="choose_category">
+                <button>All</button>
+                <button>Burger</button>
+                <button>Sandwiches</button>
+                <button>Pasta</button>
+                <button>Fries</button>
+                <button>Drinks</button>
+                <button>Pizza</button>
+            </div>
+            <div class="menu-items">
+                {% for product in products %}
+                <div class="item">
+                    <h2>{{ product.Name }}</h2>
+                    <h4>{{ product.Description }}</h4>
+                    <h4>{{ product.Price }}</h4>
+                    <a href="{{ url_for('view_product', product_id=product.ProductId) }}" class="special">View Details</a>
+                    <form action="{{ url_for('add_to_cart_route', product_id=product.ProductId) }}" method="POST">
+                        <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+                        <button type="submit"> + Add to Cart</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <div class="star">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="container3">
+            <form action="{{ url_for('contact') }}" method="POST">
+                
+                <input id="name" type="text" name="name" placeholder="Your Name" required />
+
+                
+                <input id="email" type="email" name="email" placeholder="Your Email" required />
+                <br /><br />
+
+                
+                <textarea name="subject" id="subject" cols="100" rows="2" placeholder="Subject" required></textarea>
+                <br /><br />
+
+                <textarea name="message" id="message" cols="100" rows="6" placeholder="Your Message" required></textarea>
+                <br /><br />
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="final">
+        <div class="center">
+            <div class="ic">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+            <div class="center">
+                <p>Copy Right 2018 © By <a href="">Theme-fair</a> All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
