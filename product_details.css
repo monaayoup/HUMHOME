@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #ecb837;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+.product-details {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.product-price,
+.product-quantity {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Add to Cart Section */
+.add-to-cart {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-to-cart label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.add-to-cart input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 100px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-to-cart button {
+    padding: 10px 20px;
+    background-color: #fdb177;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-to-cart button:hover {
+    background-color: #FE954E;
+}
+
+/* Back Button */
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #FE954E;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #FE954E;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #FE954E;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .product-details {
+        padding: 15px;
+    }
+
+    .add-to-cart input[type="number"] {
+        width: 80px;
+    }
+
+    .add-to-cart button {
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .back-btn {
+        width: 100%;
+        padding: 12px 0;
+    }
+}

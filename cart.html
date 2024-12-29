@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <main>
+        <div class="items">
+            {% for item in cart_items %}
+            <div class="item">
+                <h2 class="item-name">{{ item.Name }}</h2>
+                <p class="item-price">{{ item.Price }} EGP</p>
+                <div class="container">
+                    <form action="{{ url_for('increase_decrease', product_id=item.ProductId , quantity=item.Quantity , status='inc') }}" >
+                        <button class="quantity-btn" >+</button>
+                    </form>
+                    
+                    <p class="item-quantity">{{ item.Quantity }}</p>
+                    <form action="{{ url_for('increase_decrease', product_id=item.ProductId , quantity=item.Quantity , status ='dec') }}" >
+                        <button class="quantity-btn" >-</button>
+                    </form>
+                    
+                    
+                    <a href="{{ url_for('remove_from_cart', product_id=item.ProductId) }}" ><i class="fa-solid fa-trash"></i> </a>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+            <h2>Total: {{ total_price.totalPrice }} EGP</h2>
+            <form action="{{ url_for('checkout') }}" method="POST">
+                <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+            </form>
+        </div>
+    </main>
+
+    
+
+    
+    
+</body>
+
+</html>

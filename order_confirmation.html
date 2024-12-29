@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='order_confirmation.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+
+    {% if order %}
+    <p><strong>Order Number:</strong> {{ order.OrderNo }}</p>
+    <p><strong>Order Date:</strong> {{ order.OrderDate }}</p>
+    <p><strong>Status:</strong> {{ order.Status }}</p>
+
+    <h2>Order Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order_details %}
+            <tr>
+                <td>{{ item.Name }}</td>
+                <td>{{ item.Quantity }}</td>
+                <td>{{ item.Price }}</td>
+                <td>{{ item.Quantity * item.Price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Order not found. Please contact support for assistance.</p>
+    {% endif %}
+    </div>
+    
+</body>
+</html>
