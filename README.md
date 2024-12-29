@@ -15,5 +15,5 @@ This project combines various database concepts with a dynamic web application t
  • Database: SQL Server
  • Frontend: Dynamic website with seamless integration
 
- #you can read the final video here
+ # you can read the final video here
  https://drive.google.com/file/d/1nR3CeNY30OFMs5v1tTFyh0WIhOS35sNb/view?usp=sharing
